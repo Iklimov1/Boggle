@@ -1,3 +1,11 @@
+### ✅ Things to work on:
+- [ ] Make sure the countdown is not still running after the game is over into negative numbers  
+- [ ] Cover the game pieces after the game ends and blur out the game board, but still make it accessible to check the words  
+- [ ] Align grid with a dictionary to show all words missed by the player  
+- [ ] Style the game board and make it look more appealing  
+- [ ] Allow the player to decide the size of the game board  
+- [ ] Allow the player to decide the duration of the game  
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
