@@ -3,6 +3,8 @@
 // 2. Cover the game pieces after game ends and blur out the game board but still make it accessible for after to check the words
 // 3. align grid with a dictionary to show all words missed by the player
 // 4. style the game board and make it look more appealing
+// 5. allow the player to decide the size of the game board
+// 6. allow the player to decide the duration of the game
 
 import "./App.css";
 import { Grid } from "./components/Grid";
