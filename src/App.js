@@ -50,6 +50,8 @@ function App() {
   return (
     <div className="App">
       {/* html */}
+      <h1>Boggle</h1>
+      <div class={isGameStarted ? "timer" : "timer hidden"}> {Timer}</div>
       {counter > 0 ? null : (
         <h1
           style={{
@@ -63,8 +65,6 @@ function App() {
       <Grid cubes={cubes} />
 
       <button onClick={() => startGame()}>Start Game</button>
-
-      {Timer}
       <button
         onClick={() => {
           setIsGameStarted(false);

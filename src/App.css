@@ -42,15 +42,11 @@
   grid-gap: 10px;
   width: 100%;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 660px;
   padding: 10px;
 }
 
 .cube {
-  /* padding: 8px;
-  border: 1px solid #000;
-  border-radius: 4px;
-  font-size: 100px; */
   width: 150px;
   height: 150px;
   display: flex;
@@ -72,12 +68,28 @@ button {
   color: white;
   border: none;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 25px;
+  font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.1s ease-in-out;
   margin: 10px;
 }
 button:hover {
-  background: #271203;
+  background: #2d1706;
+}
+
+.timer {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 10px;
+  color: #805537;
+}
+.hidden {
+  display: none;
+}
+h1 {
+  font-size: 60px;
+  color: #805537;
+  margin: 10px;
 }
