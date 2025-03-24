@@ -5,6 +5,7 @@
 // 4. style the game board and make it look more appealing
 // 5. allow the player to decide the size of the game board
 // 6. allow the player to decide the duration of the game
+// 7. fix start button issue, should not be able to click start button while game is in progress
 
 import "./App.css";
 import { Grid } from "./components/Grid";
@@ -37,6 +38,7 @@ const shuffleCubes = () => {
 function App() {
   const [cubes, setCubes] = useState(cubeDefinitions);
   const [isGameStarted, setIsGameStarted] = useState(false);
+  const [duration, setDuration] = useState(90);
 
   const startGame = useCallback(() => {
     console.log("startGame");
@@ -45,26 +47,39 @@ function App() {
     setIsGameStarted(true);
   }, []);
 
-  const { Timer, counter } = useTimer({ isGameStarted });
+  const { Timer, counter } = useTimer({ isGameStarted, duration });
 
   return (
     <div className="App">
       <h1>Boggle</h1>
-      <div class={isGameStarted && counter > 0 ? "timer" : "hidden"}>
-        {" "}
+      <div className={isGameStarted && counter > 0 ? "timer" : "hidden"}>
         {Timer}
       </div>
-      <div class={`game-board ${counter === 0 ? "blur" : ""}`}>
+      <div className={`${counter === 0 ? "blur" : ""}`}>
         <Grid cubes={cubes} />
       </div>
 
-      {counter > 0 ? null : <h1 class="gameover">Game Over</h1>}
+      {counter > 0 ? null : <h1 className="gameover">Game Over</h1>}
 
-      <button onClick={() => startGame()}>Start Game</button>
+      <button
+        onClick={() => startGame()}
+        className={isGameStarted && counter >= 0 ? "hidden" : ""}
+      >
+        Start Game
+      </button>
+      {/* <input
+        type="number"
+        value={duration}
+        onChange={(e) => {
+          setDuration(e.target.value);
+        }}
+      /> */}
+      {/* // class={isGameStarted && counter >= 0 ? "" : "hidden"} */}
       <button
         onClick={() => {
           setIsGameStarted(false);
         }}
+        className={isGameStarted ? "" : "hidden"}
       >
         Reset
       </button>

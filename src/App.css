@@ -112,6 +112,3 @@ h1 {
   pointer-events: none; /* Prevents interactions */
   opacity: 0.7;
 }
-.game-board {
-  transition: filter 0.7s ease-in-out;
-}
