@@ -66,7 +66,7 @@
 button {
   background: #805537;
   color: white;
-  border: none;
+  border: #000 2px solid;
   padding: 10px 20px;
   font-size: 25px;
   font-weight: bold;
@@ -92,4 +92,26 @@ h1 {
   font-size: 60px;
   color: #805537;
   margin: 10px;
+}
+.gameover {
+  font-size: 3rem;
+  color: red;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 2px 2px 5px #000;
+  animation: pop-in 0.7s ease-in-out;
+  background-color: #805537;
+  padding: 15px;
+  border-radius: 5px;
+  border: #000 2px solid;
+}
+.blur {
+  filter: blur(6px);
+  pointer-events: none; /* Prevents interactions */
+  opacity: 0.7;
+}
+.game-board {
+  transition: filter 0.7s ease-in-out;
 }

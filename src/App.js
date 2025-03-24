@@ -49,20 +49,16 @@ function App() {
 
   return (
     <div className="App">
-      {/* html */}
       <h1>Boggle</h1>
-      <div class={isGameStarted ? "timer" : "timer hidden"}> {Timer}</div>
-      {counter > 0 ? null : (
-        <h1
-          style={{
-            fontSize: "3rem",
-            color: "red",
-          }}
-        >
-          Game Over
-        </h1>
-      )}
-      <Grid cubes={cubes} />
+      <div class={isGameStarted && counter > 0 ? "timer" : "hidden"}>
+        {" "}
+        {Timer}
+      </div>
+      <div class={`game-board ${counter === 0 ? "blur" : ""}`}>
+        <Grid cubes={cubes} />
+      </div>
+
+      {counter > 0 ? null : <h1 class="gameover">Game Over</h1>}
 
       <button onClick={() => startGame()}>Start Game</button>
       <button

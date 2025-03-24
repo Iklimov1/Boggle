@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
-export function useTimer({ isGameStarted, duration = 90 }) {
+export function useTimer({ isGameStarted, duration = 5 }) {
   const [counter, setCounter] = useState(duration);
 
   useEffect(() => {
     let timer;
     if (isGameStarted) {
       timer = setInterval(() => {
-        setCounter((prevCounter) => prevCounter - 1);
+        setCounter((prevCounter) => {
+          if (prevCounter <= 1) {
+            clearInterval(timer);
+            return 0;
+          }
+          return prevCounter - 1;
+        });
       }, 1000);
     } else {
       setCounter(duration);
