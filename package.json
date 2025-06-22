@@ -39,7 +39,7 @@
     ]
   },
   "devDependencies": {
-  "homepage": "https://iklimov1.github.io/my-portfolio/Boggle.html/boggle"
+  "homepage": "https://iklimov1.github.io/my-portfolio/Boggle.html/Boggle",
     "deploy":"gh-pages -d build"
   }
 }
