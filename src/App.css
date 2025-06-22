@@ -112,3 +112,17 @@ h1 {
   pointer-events: none; /* Prevents interactions */
   opacity: 0.7;
 }
+.userTimer {
+  /* font-size: 25px;
+  font-weight: bold;
+  margin: 10px;
+  color: #805537;
+  /* width: 60px; 
+  text-align: center; */
+  border: none;
+  outline: none;
+  font-size: 3rem;
+  /* display: block; */
+  width: 120px;
+  text-align: center;
+}

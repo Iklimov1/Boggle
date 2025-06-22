@@ -11,24 +11,24 @@ import "./App.css";
 import { Grid } from "./components/Grid";
 import { useCallback, useState } from "react";
 import { useTimer } from "./components/Timer";
-
+// import { findAllPossibleWords } from "./WordFinder"; //
 const cubeDefinitions = [
-  ["A", "G", "E", "N", "E", "A"],
+  ["A", "E", "A", "N", "E", "G"],
   ["A", "H", "S", "P", "C", "O"],
   ["A", "S", "P", "F", "F", "K"],
   ["O", "B", "J", "O", "A", "B"],
   ["I", "O", "T", "M", "U", "C"],
   ["R", "Y", "V", "D", "E", "L"],
   ["L", "R", "E", "I", "X", "D"],
+  ["E", "I", "U", "N", "E", "S"],
+  ["W", "N", "G", "E", "E", "H"],
+  ["L", "N", "H", "N", "R", "Z"],
+  ["T", "S", "T", "I", "Y", "D"],
+  ["O", "W", "T", "O", "A", "T"],
+  ["E", "R", "T", "T", "Y", "L"],
+  ["T", "O", "E", "S", "S", "I"],
   ["T", "E", "R", "W", "H", "V"],
-  ["H", "E", "R", "I", "S", "N"],
   ["N", "U", "I", "H", "M", "Qu"],
-  ["T", "E", "L", "P", "C", "I"],
-  ["S", "F", "K", "A", "F", "P"],
-  ["I", "E", "E", "H", "W", "V"],
-  ["I", "D", "S", "Y", "T", "T"],
-  ["E", "T", "I", "L", "I", "C"],
-  ["M", "T", "O", "I", "C", "U"],
 ];
 
 const shuffleCubes = () => {
@@ -39,15 +39,23 @@ function App() {
   const [cubes, setCubes] = useState(cubeDefinitions);
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [duration, setDuration] = useState(90);
+  // const [possibleWords, setPossibleWords] = useState([]); //
 
   const startGame = useCallback(() => {
     console.log("startGame");
     const shuffledCubes = cubeDefinitions.sort(() => Math.random() - 0.5);
     setCubes([...shuffledCubes]);
+    // const words = findAllPossibleWords(shuffledCubes); //
+    // setPossibleWords(words); //
     setIsGameStarted(true);
   }, []);
 
   const { Timer, counter } = useTimer({ isGameStarted, duration });
+
+  const handleDurationChange = (e) => {
+    const newDuration = parseInt(e.target.value, 10);
+    setDuration(newDuration);
+  };
 
   return (
     <div className="App">
@@ -67,13 +75,15 @@ function App() {
       >
         Start Game
       </button>
-      {/* <input
-        type="number"
-        value={duration}
-        onChange={(e) => {
-          setDuration(e.target.value);
-        }}
-      /> */}
+      <div>
+        Game Duration:
+        <input
+          class={isGameStarted && counter >= 0 ? "hidden" : "userTimer"}
+          type="number"
+          value={duration}
+          onChange={handleDurationChange}
+        />
+      </div>
       {/* // class={isGameStarted && counter >= 0 ? "" : "hidden"} */}
       <button
         onClick={() => {
@@ -83,6 +93,16 @@ function App() {
       >
         Reset
       </button>
+      {/* {counter === 0 && (
+        <div>
+          <h2>Possible Words:</h2>
+          <ul>
+            {possibleWords.map((word) => (
+              <li key={word}>{word}</li>
+            ))}
+          </ul>
+        </div>
+      )} */}
     </div>
   );
 }

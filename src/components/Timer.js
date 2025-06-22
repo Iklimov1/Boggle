@@ -5,6 +5,7 @@ export function useTimer({ isGameStarted, duration = 5 }) {
   useEffect(() => {
     let timer;
     if (isGameStarted) {
+      setCounter(duration);
       timer = setInterval(() => {
         setCounter((prevCounter) => {
           if (prevCounter <= 1) {
